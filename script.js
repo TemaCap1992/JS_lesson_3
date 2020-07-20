@@ -35,51 +35,53 @@ alert('Welcome to the site!!!');
 
 //third task
 let profession;
-let child;
 
-var persons = [
+let persons = [
     {id:10, name:'Vasya', age:28},
     {id:11, name:'Kolya', age:16, parentld:14},
     {id:12, name:'Anna', age:37},
     {id:13, name:'Zoya', age:9, parentld:12},
     {id:14, name:'Arkadiy', age:45},
 ];
+
 console.log(persons);
 
-// minors
+let adults = [];
+let minors = [];
+
 for (let item of persons) {
     if (item.age <=18) {
-        child = item.name + ' - ' + item.age + ' ' + 'years old';
-        console.log(child);
+        minors.push(item);
     }
 };
-// adults
+console.log(minors);
+
 for (let item of persons) {
     if (item.age >=18) {
-        profession = prompt('what is your profession' + ' ' + item.name + '?')
-        console.log(item.name + ' ' + 'has a profession' + ' ' + profession);
+        adults.push(item);
     }
 };
+console.log(adults);
 
-
-
-
-/* 
-как связать родителей с их детьми я не разобрался((
-for (let item of persons) {
-    console.log(item.parentld);
-};
-for (let item of persons) {
-    console.log(item.id);
+for (let item of adults) {
+    profession = prompt('what is your profession' + ' ' + item.name + '?')
+    console.log(item.name + ' ' + 'has a profession' + ' ' + profession);
 };
 
-if(item.id === item.parentld) {
-    console.log(item.name);
-}   
+for (let item of minors) {
+    let newParentld = item.parentld;
+    let newName = item.name;
+    for (let item of adults) {
+        if (newParentld === item.id){
+            console.log(item.name + ' has a child ' + newName);
+        }
+    }
+}
+
+/*      
+for(){
+   for(){
+    if () {}
+   }
+}
 */
-
-
-
-
-
-
