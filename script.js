@@ -16,7 +16,7 @@ while(isNaN(userPassword)) {
 
 let login = prompt('Enter login...', 'minimum three symbol');
 while(login !== userLogin) {
-    alert('Такого пользователя не существует');
+    alert('This user does not exist');
     login = prompt('Enter your login carefully!!!', 'minimum three symbol'); 
 } 
 
@@ -24,7 +24,7 @@ alert('Welcome ' + ' ' + userLogin);
 
 let password = prompt('Enter password...', 'only numbers');
 while(password !== userPassword) {
-    alert('Неверный пароль');
+    alert('Wrong password');
     password = prompt('Enter your password carefully!!!', 'only numbers');    
 }
 
@@ -65,6 +65,7 @@ for (let item of persons) {
 
 
 /* 
+как связать родителей с их детьми я не разобрался((
 for (let item of persons) {
     console.log(item.parentld);
 };
