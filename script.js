@@ -73,7 +73,7 @@ for (let item of minors) {
     let newName = item.name;
     for (let item of adults) {
         if (newParentld === item.id){
-            console.log(item.name + ' has a child ' + newName);
+            alert(item.name + ' has a child ' + newName);
         }
     }
 }
