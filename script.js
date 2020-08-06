@@ -15,23 +15,24 @@ while(isNaN(userPassword)) {
 } 
 
 let login = prompt('Enter login...', 'minimum three symbol');
-while(login !== userLogin) {
-    alert('Такого пользователя не существует');
-    login = prompt('Enter your login carefully!!!', 'minimum three symbol'); 
-} 
-
-alert('Welcome ' + ' ' + userLogin);
-
-let password = prompt('Enter password...', 'only numbers');
-while(password !== userPassword) {
-    alert('Неверный пароль');
-    password = prompt('Enter your password carefully!!!', 'only numbers');    
+if (login === userLogin) {
+    alert('Welcome ' + ' ' + userLogin);     
+} while (login !== userLogin) {
+    alert('no such user exists');
+    login = prompt('Enter your login carefully!!!', 'minimum three symbol');
 }
 
-alert('Password entered successfully');
+let password = prompt('Enter password...', 'only numbers');
+if (password === userPassword) {
+    alert('Password entered successfully');
+} while (password !== userPassword) {
+    alert('Wrong password!!!');
+    password = prompt('carefully enter the password consisting only of numbers'); 
+    
+}
+
 alert('Welcome to the site!!!'); 
 
-    
 
 //third task
 let profession;
@@ -50,38 +51,22 @@ let adults = [];
 let minors = [];
 
 for (let item of persons) {
-    if (item.age <=18) {
+    if (item.age <18) {
         minors.push(item);
+    } else  {
+        adults.push(item);
+        profession = prompt('what is your profession' + ' ' + item.name + '?')
+        console.log(item.name + ' ' + 'has a profession' + ' ' + profession);
     }
 };
 console.log(minors);
-
-for (let item of persons) {
-    if (item.age >=18) {
-        adults.push(item);
-    }
-};
 console.log(adults);
 
-for (let item of adults) {
-    profession = prompt('what is your profession' + ' ' + item.name + '?')
-    console.log(item.name + ' ' + 'has a profession' + ' ' + profession);
-};
-
-for (let item of minors) {
-    let newParentld = item.parentld;
-    let newName = item.name;
+for (let i of minors) {
+    let newParentld = i.parentld;
     for (let item of adults) {
         if (newParentld === item.id){
-            alert(item.name + ' has a child ' + newName);
+            console.log(item.name + ' has a child ' + i.name);
         }
     }
 }
-
-/*      
-for(){
-   for(){
-    if () {}
-   }
-}
-*/
